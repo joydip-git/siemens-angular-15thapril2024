@@ -1,0 +1,19 @@
+application: payroll app=> calculate the salary of some employees
+note: 
+	- use ES6 module format to write
+	- create any extra classes/interfaces if required (in separate files)
+
+developer.ts
+developer:
+	data members: name, id, basic, da, hra, incentive
+	method: calculateSalary [arguments: NA, return type: number] => calculates total salary of every developer
+
+hr.ts
+hr: 
+	data members: name, id, basic, da, hra, gratuity
+	method: calculateSalary [arguments: NA, return type: number] => calculates total salary of every hr
+
+index.ts
+1. create an array to store some objects of both developer and hr
+2. iterate through the array and pick up every object and calculate their total salary and print the same with name of the employee
+
