@@ -64,6 +64,35 @@ module loader: a s/w which understands a module in JS code and resolve dependenc
 example: requirejs, system js, common js module loader etc.
 
 
+TS => development mode/level language
+
+problems and solutions:
+1. convert TS Code to JS Code [convert it into as much possible oldest version of JS]
+2. convert ES6 module format to other module format
+
+Transpilation: 
+converting and compiling new version of JS/TS code into "vanilla" JS 
+
+Use transpilers:
+	babel: JS (ES6+) => JS (vanilla)
+	tsc: TS (ES6+) => JS (vanilla)
+
+step-1: download and install typescript compiler (TSC)
+>npm i/install typescript --save-dev
+or
+>npm i/install typescript -D
+step-2: create a configuration file for TSC (tsconfig.json)
+step-3: trainspile your code
+step-4: run the transpiled code
+
+dependencies and its registration:
+package.json file (should be at the root of the app directory)
+>npm init
+or
+>npm init --yes
+	
+
+
 
 
 

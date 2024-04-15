@@ -1,0 +1,14 @@
+{
+  "name": "payroll-app",
+  "version": "1.0.0",
+  "description": "payroll app to calculate salary of employees",
+  "scripts": {
+    "compile": "tsc --watch",
+    "app": "node ./build/index.js"
+  },
+  "author": "joydip",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}
