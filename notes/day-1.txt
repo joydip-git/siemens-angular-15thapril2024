@@ -1,0 +1,73 @@
+https://github.com/joydip-git/siemens-angular-15thapril2024
+
+S/W:
+Node JS
+VS Code
+
+Roadmap:
+JavaScript and its new features
+TypeScript
+Node JS
+Angular
+
+chrome => V8
+safari => JS Core
+firefox => Spidermonkey
+
+Ryan Dahl => 2009 => V8
+
+JS runtimes:
+a. browser (JS engine)
+b. Node (V8 engine) => server side framework
+c. Deno 
+etc.
+
+JS data types:
+---------------------------
+number, string, boolean, object, function
+
+ECMA:
+guideline/specification: ECMA Script (ES)
+
+
+2015 => ES 6.0
+a. let and const keywords
+b. class, constructor, extends, super keywords
+c. ES6 module format
+d. string interpolation or templated string
+
+declare local variables using: var, let and const
+
+
+JS execution:
+a. preparation stage: only variables and function declarations are hoisted (Note: in case of function expression, the variable itself is hoisted, BUT NOT THE FUNCTION)
+b. execution stage: anything apart from declarations, are taken care of
+
+
+modules in JS:
+every file is a module
+a module can have exportable members which other files can import
+
+module format:
+a. common js: [default module format for Node JS]
+	export: module.exports = { prop-name1:member-name1, prop-name2: member-name2, ....}
+	import: const exportObject = require('module-file-path-without-extension')
+
+b. ES 6 module format:
+	a. export: export member
+	b. import: import { member} from 'module-file-path-without-extension'
+
+c. AMD (asynchronous module definition) format
+c. UMD (Universal module definition) format
+
+module loader: a s/w which understands a module in JS code and resolve dependencies between JS modules
+example: requirejs, system js, common js module loader etc.
+
+
+
+
+
+
+
+
+
