@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -14,19 +13,21 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Hr = void 0;
-var employee_1 = require("./employee");
-var Hr = /** @class */ (function (_super) {
-    __extends(Hr, _super);
-    function Hr(id, name, basicPay, daPay, hraPay, gratuityPay) {
-        var _this = _super.call(this, id, name, basicPay, daPay, hraPay) || this;
-        _this.gratuityPay = gratuityPay;
-        return _this;
-    }
-    Hr.prototype.calculateSalary = function () {
-        return _super.prototype.calculateSalary.call(this) + this.gratuityPay;
-    };
-    return Hr;
-}(employee_1.Employee));
-exports.Hr = Hr;
+define(["require", "exports", "./employee"], function (require, exports, employee_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    exports.Hr = void 0;
+    var Hr = /** @class */ (function (_super) {
+        __extends(Hr, _super);
+        function Hr(id, name, basicPay, daPay, hraPay, gratuityPay) {
+            var _this = _super.call(this, id, name, basicPay, daPay, hraPay) || this;
+            _this.gratuityPay = gratuityPay;
+            return _this;
+        }
+        Hr.prototype.calculateSalary = function () {
+            return _super.prototype.calculateSalary.call(this) + this.gratuityPay;
+        };
+        return Hr;
+    }(employee_1.Employee));
+    exports.Hr = Hr;
+});

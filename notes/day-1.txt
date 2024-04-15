@@ -35,6 +35,7 @@ a. let and const keywords
 b. class, constructor, extends, super keywords
 c. ES6 module format
 d. string interpolation or templated string
+e. arrow function: binds a function with the same "this" object as that of the immediate outer function
 
 declare local variables using: var, let and const
 
@@ -82,6 +83,7 @@ step-1: download and install typescript compiler (TSC)
 or
 >npm i/install typescript -D
 step-2: create a configuration file for TSC (tsconfig.json)
+>tsc --init
 step-3: trainspile your code
 step-4: run the transpiled code
 
@@ -90,6 +92,21 @@ package.json file (should be at the root of the app directory)
 >npm init
 or
 >npm init --yes
+
+
+<div>
+	<button>
+		<input type='text'>
+  </button>
+</div>
+
+function div(){
+	this.data = 100;
+	function button(){
+		function inputText(){
+		}
+  }
+}
 	
 
 
