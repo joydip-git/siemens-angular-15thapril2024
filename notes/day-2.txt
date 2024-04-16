@@ -2,3 +2,17 @@ asynchronous programming APIs:
 Promise
 3rd party APIs: 
 	Reactive Extensions
+
+Angular:
+	Angular JS => 1.x and Angular => 2.0
+
+1. SPA => Single Page Application
+2. Client side framework 
+3. talks about creating series of components
+4. DI framework
+5. services => for common logic used across components
+6. pipes => a place for data transformation
+7. routing mechanism
+8. data binding => pass data to UI (design) from  code and vice versa
+9. modules
+etc.
