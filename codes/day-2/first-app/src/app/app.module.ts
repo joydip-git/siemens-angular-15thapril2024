@@ -1,10 +1,11 @@
 import { NgModule } from "@angular/core";
 import { AppComponent } from "./app.component";
 import { BrowserModule } from "@angular/platform-browser";
+import { SecondComponent } from "./second/second.component";
 
 @NgModule({
     //to register components, pipes and directives ONLY
-    declarations: [AppComponent],
+    declarations: [AppComponent, SecondComponent],
     //to register services ONLY
     providers: [],
     //to register other modules (built-in and your child modules) ONLY

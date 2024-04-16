@@ -38,6 +38,59 @@ d. module			class				@NgModule({metadata about component})
 
 e. service			class				[@Injectable({metadata about service})]
 
+binding:
+
+1. data binding:
+passing data from component code to its view
+a. interpolation
+syntax: {{data}}
+b. property binding: (does not convert the data to string while binding)
+syntax:
+<hhtml-element [attribute]="data">
+
+2. event binding:
+passing data from component view to its code
+syntax:
+<html-element (event-name)="method(data)">
+
+template reference variable: reference to the instance of the template (on which yiu are declaring the variable)
+<html-element #var-name>
+
+directives:
+	a. structural directive => used like an attribute of an element but, manipulates the DOM (document object model) 
+		example: *ngFor, *ngIf, *ngIfElse, *ngSwitch
+	b. attribute directive => they are used like an attribute of an element but does not manipulate the DOM
+		example: ngClass, ngStyle etc.
+	c. component directive (Component) => only directive with a "view". used like an HTML tag NOT like an attribute
+		example: @Component() AppComponent
+
+ngFor	=>
+class name: NgForOfDirective
+module name: CommonModule
+
+@NgModule({
+	imports:[CommonModule]
+})
+export class BrowserModule{
+}
+
+
+
+@NgModule({
+	declarations:[NgForOfDirective]
+})
+export class CommonModule{
+}
+
+@Directive({
+	selector:'[ngFor]'
+})
+export class NgForOfDirective{
+	method(expression){
+		return template
+	}
+}
+
 
 
 

@@ -1,0 +1,37 @@
+<h2 [style.width.px]="headerWidth">
+    {{title}}
+</h2>
+<br>
+<div>
+    <label for="txtWidth">Enter Width: &nbsp;</label>
+    <input type="text" id="txtWidth" (keyup)="changeWidth(txtref.value)" #txtref>
+    <!-- const txtref = document.getElementById('txtWidth')-->
+</div>
+<br />
+<ul>
+
+    <li *ngFor="let num of numbers">
+        {{num}}
+    </li>
+</ul>
+<br>
+<br>
+<div>
+    <label for="ddlEmployees">Select an Employee: &nbsp;</label>
+    <select id="ddlEmployees">
+        <option disabled selected>--select--</option>
+        <option *ngFor="let e of employees">
+            {{e.name}}
+        </option>
+    </select>
+</div>
+<br>
+<button (click)="changeShow()" type="button">
+    {{
+    show?'Hide':'Show'
+    }}
+</button>
+<br>
+<div *ngIf="show">
+    <app-second></app-second>
+</div>
