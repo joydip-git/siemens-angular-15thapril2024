@@ -16,3 +16,29 @@ Angular:
 8. data binding => pass data to UI (design) from  code and vice versa
 9. modules
 etc.
+
+CLI (Command Line Interface) tool to create angular application: Angular CLI
+package name: @angular/cli
+command: >npm i @angular/cli --location=global
+executable: ng
+global installation path: C:\Users\<user-name>\AppData\Roaming\npm
+
+command to create a new angular app:
+>ng new first-app
+
+
+Angular Things:
+Thing					type				decorator function
+---------------------------------------------------------
+a. component		class				@Component({metadata about component})
+b. pipe				class				@Pipe({metadata about component})
+d. directive		class				@Directive({metadata about component})
+
+d. module			class				@NgModule({metadata about component})
+
+e. service			class				[@Injectable({metadata about service})]
+
+
+
+
+
