@@ -1,0 +1,20 @@
+<table>
+    <thead class="header-style">
+        <tr>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of productRecords">
+            <td>
+                <img src="{{p.imageUrl}}" alt="NA" class="img-style">
+            </td>
+            <td>{{p.productName}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.starRating}}</td>
+        </tr>
+    </tbody>
+</table>

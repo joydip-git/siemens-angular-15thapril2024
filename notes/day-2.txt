@@ -91,6 +91,8 @@ export class NgForOfDirective{
 	}
 }
 
+imageUrl, productName, price, starRating
+
 
 
 
