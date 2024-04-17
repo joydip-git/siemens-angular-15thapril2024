@@ -1,0 +1,41 @@
+GET http://localhost:3000/products
+
+###
+GET http://localhost:3000/products/1
+
+###
+GET http://localhost:3000/products/100
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+ {
+            "id": 6,
+            "productName": "sample",
+            "productCode": "abc-0011",
+            "releaseDate": "March 19, 2016",
+            "description": "sample description",
+            "price": 100,
+            "starRating": 3,
+            "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
+}
+
+###
+PUT http://localhost:3000/products/6
+Content-Type: application/json
+
+ {
+            "id":6,
+            "productName": "sample updated product",
+            "productCode": "abc-0011",
+            "releaseDate": "March 19, 2016",
+            "description": "sample description",
+            "price": 500,
+            "starRating": 3,
+            "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
+}
+
+###
+DELETE http://localhost:3000/products/6
+

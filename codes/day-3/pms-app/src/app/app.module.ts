@@ -10,5 +10,6 @@ import { ProductsModule } from './products/products.module';
     ],
     declarations: [AppComponent],
     bootstrap: [AppComponent],
+    providers: []
 })
 export class AppModule { }

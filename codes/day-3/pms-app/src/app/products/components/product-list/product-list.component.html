@@ -2,9 +2,10 @@
     List of Products
 </h2>
 <br>
+
 <app-filter-product (filterValueChanged)="updateFilterText($event)"></app-filter-product>
 <br>
-<table class="table table-hover">
+<table class="table table-hover" *ngIf="productRecords && productRecords.length>0">
     <thead class="header-style">
         <tr>
             <th>Image</th>

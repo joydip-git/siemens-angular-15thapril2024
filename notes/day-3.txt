@@ -77,6 +77,13 @@ export class CurrencyPipe{
 {{p.price|   currency    :'INR':::}}
 
 
+Service and DI:
+	asset level [component/pipe/directive/service] => an instance of service
+	feature module level: an instance of service
+	application/root module level:  an instance of service
+
+
+
 
 
 
