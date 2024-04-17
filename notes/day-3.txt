@@ -1,0 +1,50 @@
+src
+	app
+		app.component.ts
+		app.component.html
+		app.component.css
+		app.component.spec.ts
+		app.module.ts
+
+		data
+			products.ts (products array)
+
+		models
+			product.ts (product interface)
+
+		products (folder)
+			products.module.ts (file)
+
+			components (folder)
+				
+				product-list (folder)
+					product-list.component.ts
+					product-list.component.html
+					product-list.component.css
+
+				add-product (folder)
+					add-product.component.ts
+					add-product.component.html
+					add-product.component.css
+
+				update-product (folder)
+					update-product.component.ts
+					update-product.component.css
+					update-product.component.html
+
+			services (folder)
+					products.service.ts
+
+			pipes (folder)
+					product-filter.pipe.ts
+
+			directives (folder)
+
+		orders
+			orders.module.ts
+			components (folder)
+			services (folder)
+			pipes (folder)
+			directives (folder)
+
+	
