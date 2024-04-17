@@ -1,9 +1,11 @@
+import { Observable } from "rxjs";
 import { Product } from "../../models/product";
+import { ApiResponse } from "../../models/apiresponse";
 
 export interface DataService {
-    getProducts(): void;
-    getProductById(id: number): void;
-    addProduct(product: Product): void;
-    updateProduct(product: Product, id: number): void;
-    deleteProduct(id: number): void;
+    getProducts(): Observable<Product[]>;
+    getProductById(id: string): Observable<Product>;
+    addProduct(product: Product): Observable<ApiResponse<Product>>;
+    updateProduct(product: Product, id: string): void;
+    deleteProduct(id: string): void;
 }

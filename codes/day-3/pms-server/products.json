@@ -49,6 +49,16 @@
       "price": 35.95,
       "starRating": 4,
       "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
+    },
+    {
+      "id": 6,
+      "productName": "sample",
+      "productCode": "abc-0011",
+      "releaseDate": "March 19, 2016",
+      "description": "sample description",
+      "price": 100,
+      "starRating": 3,
+      "imageUrl": "http://openclipart.org/image/300px/svg_to_png/26215/Anonymous_Leaf_Rake.png"
     }
   ]
 }

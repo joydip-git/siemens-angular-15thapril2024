@@ -7,6 +7,7 @@ import { ProductsFilterPipe } from './pipes/products-filter.pipe';
 import { DataService } from './services/dataservice'
 import { ProductService } from './services/product.service';
 import { PRODUCT_SERVICE_TOKEN, PRODUCT_URL, PRODUCT_URL_TOKEN, SERVICE_TYPE_NAME } from '../config/appconstants';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { PRODUCT_SERVICE_TOKEN, PRODUCT_URL, PRODUCT_URL_TOKEN, SERVICE_TYPE_NAM
     ProductsFilterPipe
   ],
   imports: [
-    CommonModule
+    CommonModule, HttpClientModule
   ],
   providers: [
     // ProductService

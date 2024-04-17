@@ -82,6 +82,35 @@ Service and DI:
 	feature module level: an instance of service
 	application/root module level:  an instance of service
 
+HTTP requests from Angular application:
+built-in service class: HttpClient
+module name: HttpClientModule
+
+instance methods:
+get(url), post(), put(), delete(), ....
+return type: Observable
+
+
+component creation and destruction
+	a. nested component:
+		1. when the parent of the nested component gets destroyed
+		2. when the nested component is conditionally rendered (when appears - created, when disappears - destroyed)
+	b. routing component: when you visit the route, component is created and when you navigate away from the route, the component destroyed
+
+changes => after the constructor, the very first time, and next time onwards this is the only event that gets fired
+
+init		=> after the changes event for the very first time when component object is created and NEVER gets fired afterwards 
+
+destroy
+
+
+event-name			interface-name				method-name			
+----------------------------------------------------------
+X							OnX							ngOnX
+init						OnInit						ngOnInit
+
+
+
 
 
 
