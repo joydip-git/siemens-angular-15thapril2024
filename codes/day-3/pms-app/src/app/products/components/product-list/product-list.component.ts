@@ -8,4 +8,10 @@ import { products } from '../../../data/products';
 })
 export class ProductListComponent {
   productRecords = products
+  filterText = ''
+
+  updateFilterText(newText: string) {
+    console.log(newText)
+    this.filterText = newText
+  }
 }

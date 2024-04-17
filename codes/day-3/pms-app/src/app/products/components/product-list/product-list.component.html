@@ -2,6 +2,8 @@
     List of Products
 </h2>
 <br>
+<app-filter-product (filterValueChanged)="updateFilterText($event)"></app-filter-product>
+<br>
 <table class="table table-hover">
     <thead class="header-style">
         <tr>
@@ -13,12 +15,12 @@
         </tr>
     </thead>
     <tbody class="table-dark">
-        <tr *ngFor="let p of productRecords">
+        <tr *ngFor="let p of productRecords|productsfilter:filterText">
             <td>
                 <img src="{{p.imageUrl}}" alt="NA" class="img-style">
             </td>
-            <td>{{p.productName}}</td>
-            <td>{{p.price}}</td>
+            <td>{{p.productName|uppercase}}</td>
+            <td>{{p.price|currency:'INR'}}</td>
             <td>{{p.starRating}}</td>
             <td>
                 <button type="button" class="btn btn-danger">Delete</button>

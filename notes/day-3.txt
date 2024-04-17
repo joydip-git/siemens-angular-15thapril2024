@@ -47,4 +47,37 @@ src
 			pipes (folder)
 			directives (folder)
 
+
+passing data from nested (child) to its parent component:
+1. create an event for the nested (child) component
+2. fire the event and emit the data
+3. in the parent component's design bind the event of the nested (child) component (filterTextChanged) with the method of the parent component class [updateFilterText]
+
+
+@Pipe({
+	name:'uppercase'
+})
+export class UppercasePipe{
+	transform(input:any){
+	}
+}
+
+
+{{p.productName|uppercase}}
+
+
+@Pipe({
+	name:'currency'
+})
+export class CurrencyPipe{
+	transform(input:any,...args:any[]){
+	}
+}
+
+{{p.price|   currency    :'INR':::}}
+
+
+
+
+
 	
