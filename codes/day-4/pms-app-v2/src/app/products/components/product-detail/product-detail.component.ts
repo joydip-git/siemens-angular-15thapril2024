@@ -1,5 +1,5 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, Params } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Product } from '../../../models/product';
 import { DataService } from '../../services/dataservice';
@@ -19,7 +19,8 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private currentRoute: ActivatedRoute,
-    @Inject(PRODUCT_SERVICE_TOKEN) private _ps: DataService
+    @Inject(PRODUCT_SERVICE_TOKEN) private _ps: DataService,
+    private _router: Router
   ) { }
 
 
@@ -52,5 +53,9 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
             this.requestCompleted = true
           }
         })
+  }
+
+  goToUpdate(id: number) {
+    this._router.navigate(['/products/update', id])
   }
 }

@@ -13,6 +13,10 @@
             <h2>
                 Details of {{productInfo.productName}}
             </h2>
+            &nbsp;&nbsp;
+            <!-- <button type="button" class="btn btn-primary"
+                [routerLink]="['/products/update',productInfo.productId]">Edit</button> -->
+            <button type="button" class="btn btn-primary" (click)="goToUpdate(productInfo.productId)">Edit</button>
         </div>
     </div>
 </div>
