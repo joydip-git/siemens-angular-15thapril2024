@@ -1,9 +1,9 @@
-import { Inject, Injectable, resolveForwardRef } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { Product } from "../../models/product";
 import { DataService } from "./dataservice";
 import { PRODUCT_URL_TOKEN } from "../../config/appconstants";
 import { HttpClient } from "@angular/common/http";
-import { Observable, map } from "rxjs";
+import { Observable } from "rxjs";
 import { ApiResponse } from "../../models/apiresponse";
 
 @Injectable()
@@ -12,9 +12,7 @@ export class ProductService implements DataService {
     constructor(
         @Inject(PRODUCT_URL_TOKEN) private _url: string,
         private _http: HttpClient
-    ) {
-        console.log('service created')
-    }
+    ) { }
 
     getProducts(): Observable<ApiResponse<Product[]>> {
         return this._http.get<ApiResponse<Product[]>>(this._url)
