@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { ProductsRoutingModule } from './products-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     UpdateProductComponent
   ],
   imports: [
-    CommonModule, HttpClientModule, ProductsRoutingModule, FormsModule
+    CommonModule, HttpClientModule, ProductsRoutingModule, FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

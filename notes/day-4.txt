@@ -40,17 +40,20 @@ DashBoard
 form data handling:
 package: @angular/forms
 module: FormsModule
-directives: ngForm, ngModel etc.
-validator directives: required, email, minLength, maxLength, min, max
 
 a. template-driven form: 
 	<form ngForm>
 		<input ngModel>
 	</form>
+	directives: ngForm, ngModel etc.
+	validator directives: required, email, minLength, maxLength, min, max
+
 b. reactive form
 	const pwd = new FormControl()
 	const frm = new FormGroup({ password: pwd})
-
+	
+	module: ReactiveFormsModule
+	directives: formContorl, formGroup etc.
 
 <form ngForm #frm="ngForm">
     <div>
@@ -68,6 +71,10 @@ b. reactive form
         <button type="submit" (click)="submit(frm)">Submit</button>
     </div>
 </form>
+
+
+HTML Form 	<=> NgForm 	<=> 	FormGroup		<=> code
+HTML Input 	<=> NgModel <=> 	FormControl  	<=> code
 
 
 

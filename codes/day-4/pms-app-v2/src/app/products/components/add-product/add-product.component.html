@@ -26,17 +26,33 @@
     </div>
 </form> -->
 
-<form>
+<form [formGroup]="loginFrm" (submit)="submit()">
     <div>
         <label for="txtUserName">User Name: &nbsp;</label>
-        <input type="text" id="txtUserName" name="username">
+        <!-- <input type="text" id="txtUserName" name="username" [formControl]="usernameCtrl"> -->
+        <input type="text" id="txtUserName" formControlName="username">
+    </div>
+
+    <div *ngIf="uname?.errors">
+        <div *ngIf="uname?.errors?.['required'] && (uname?.dirty || uname?.touched)">
+            <span>Enter Username</span>
+        </div>
+        <div *ngIf="uname?.errors?.['email'] && (uname?.dirty || uname?.touched)">
+            <span>Enter Username in email format</span>
+        </div>
     </div>
 
     <div>
         <label for="txtPassword">Password: &nbsp;</label>
-        <input type="password" id="txtPassword" name="password">
+        <!-- <input type="password" id="txtPassword" name="password" [formControl]="passwordCtrl"> -->
+        <input type="password" id="txtPassword" formControlName="password">
+    </div>
+    <div *ngIf="pwd?.errors">
+        <div *ngIf="pwd?.errors?.['required'] && (pwd?.dirty || pwd?.touched)">
+            <span>Enter password</span>
+        </div>
     </div>
     <div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" [disabled]="loginFrm.invalid">Submit</button>
     </div>
 </form>
