@@ -37,6 +37,41 @@ PageNotFound
 DashBoard
 
 
+form data handling:
+package: @angular/forms
+module: FormsModule
+directives: ngForm, ngModel etc.
+validator directives: required, email, minLength, maxLength, min, max
+
+a. template-driven form: 
+	<form ngForm>
+		<input ngModel>
+	</form>
+b. reactive form
+	const pwd = new FormControl()
+	const frm = new FormGroup({ password: pwd})
+
+
+<form ngForm #frm="ngForm">
+    <div>
+        <label for="txtValue">Enter: &nbsp;</label>
+        <!-- <input type="text" id="txtValue" [value]="inputData" (keyup)="setInputData(inputdata.value)" #inputdata> -->
+        <!-- <input type="text" id="txtValue" ngModel #inputref="ngModel" name="valueInput"> -->
+        <input type="text" id="txtValue" [(ngModel)]="inputData" name="valueInput1">
+    </div>
+
+    <div>
+        <label for="txtValue2">Enter: &nbsp;</label>
+        <input type="text" id="txtValue2" [(ngModel)]="inputData2" name="valueInput2">
+    </div>
+    <div>
+        <button type="submit" (click)="submit(frm)">Submit</button>
+    </div>
+</form>
+
+
+
+
 
 
 

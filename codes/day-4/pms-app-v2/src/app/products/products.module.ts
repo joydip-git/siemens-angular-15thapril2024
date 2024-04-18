@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { UpdateProductComponent } from './components/update-product/update-product.component';
 import { ProductsRoutingModule } from './products-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { ProductsRoutingModule } from './products-routing.module';
     UpdateProductComponent
   ],
   imports: [
-    CommonModule, HttpClientModule, ProductsRoutingModule
+    CommonModule, HttpClientModule, ProductsRoutingModule, FormsModule
   ],
   providers: [
     {

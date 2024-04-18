@@ -1,1 +1,42 @@
-<p>add-product works!</p>
+<!-- <form ngForm #frm="ngForm" (submit)="submit(frm)">
+    <div>
+        <label for="txtUserName">User Name: &nbsp;</label>
+        <input type="text" id="txtUserName" ngModel name="username" required #uname="ngModel" email>
+    </div>
+
+    <div *ngIf="uname.errors">
+        <div *ngIf="uname.errors['required'] && (uname.dirty || uname.touched)">
+            <span>Enter Username</span>
+        </div>
+        <div *ngIf="uname.errors['email'] && (uname.dirty || uname.touched)">
+            <span>Enter Username in email format</span>
+        </div>
+    </div>
+    <div>
+        <label for="txtPassword">Password: &nbsp;</label>
+        <input type="password" id="txtPassword" ngModel name="password" required #pwd="ngModel">
+    </div>
+    <div *ngIf="pwd.errors">
+        <div *ngIf="pwd.errors['required'] && (pwd.dirty || pwd.touched)">
+            <span>Enter password</span>
+        </div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" [disabled]="frm.invalid">Submit</button>
+    </div>
+</form> -->
+
+<form>
+    <div>
+        <label for="txtUserName">User Name: &nbsp;</label>
+        <input type="text" id="txtUserName" name="username">
+    </div>
+
+    <div>
+        <label for="txtPassword">Password: &nbsp;</label>
+        <input type="password" id="txtPassword" name="password">
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

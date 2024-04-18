@@ -25,7 +25,6 @@ export class UpdateProductComponent implements OnInit, OnDestroy {
     this.sub?.unsubscribe()
   }
   ngOnInit(): void {
-    //this.currentRoute.params
     const snapshot: ActivatedRouteSnapshot = this.currentRoute.snapshot
     const allParams: Params = snapshot.params
     const id = Number(allParams['id'])
