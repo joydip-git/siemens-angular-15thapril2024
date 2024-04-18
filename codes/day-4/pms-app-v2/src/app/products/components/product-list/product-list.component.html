@@ -31,7 +31,8 @@
             <tbody class="table-dark">
                 <tr *ngFor="let p of productRecords|productsfilter:filterText">
                     <td>
-                        <img src="{{p.imageUrl}}" alt="NA" class="img-style">
+                        <img src="{{p.imageUrl}}" alt="NA" class="img-style"
+                            [routerLink]="['/products/view',p.productId]">
                     </td>
                     <td>{{p.productName|uppercase}}</td>
                     <td>{{p.price|currency:'INR'}}</td>
