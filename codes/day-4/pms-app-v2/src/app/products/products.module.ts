@@ -6,16 +6,21 @@ import { FilterProductComponent } from './components/filter-product/filter-produ
 import { ProductsFilterPipe } from './pipes/products-filter.pipe';
 import { PRODUCT_SERVICE_TOKEN, PRODUCT_URL, PRODUCT_URL_TOKEN, SERVICE_TYPE_NAME } from '../config/appconstants';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { UpdateProductComponent } from './components/update-product/update-product.component';
+import { ProductsRoutingModule } from './products-routing.module';
 
 @NgModule({
   declarations: [
     ProductListComponent,
     AddProductComponent,
     FilterProductComponent,
-    ProductsFilterPipe
+    ProductsFilterPipe,
+    ProductDetailComponent,
+    UpdateProductComponent
   ],
   imports: [
-    CommonModule, HttpClientModule
+    CommonModule, HttpClientModule, ProductsRoutingModule
   ],
   providers: [
     {

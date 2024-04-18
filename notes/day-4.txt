@@ -1,0 +1,46 @@
+Routing: angular provides client-side routing
+
+module: RouterModule
+services: Router, ActivatedRoute
+directive: 
+component: router-outlet
+class: Route, Routes
+
+create route
+Route => path and component
+
+http://localhost:4200/products => PLC [FPC]
+http://localhost:4200/products/1 => PDC 
+http://localhost:4200/products/add => APC
+http://localhost:4200/products/update/1 => UPC
+
+route path
+<path-name>/:<route-parameter>
+products/:id => {id:1}
+
+categories/:cid/products/:pid 
+categories/1/products/2 => {cid:1, pid:2}
+
+put the routes in the Route[]
+Route[] => Routes
+type Routes = Route[]
+
+register the routes with Router engine:
+RouterModule.forRoot(array of Route objects)
+
+feature-module => *.module.ts => 
+separate routing module => *-routing.module.ts
+
+http://localhost:4200 or http://localhost:4200 => Home
+Home, 
+PageNotFound
+DashBoard
+
+
+
+
+
+
+
+
+
