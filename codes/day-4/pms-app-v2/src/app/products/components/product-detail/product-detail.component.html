@@ -1,1 +1,18 @@
-<p>product-detail works!</p>
+<ng-template #loadertemplate>
+    <span>Loading...</span>
+</ng-template>
+<ng-template #errortemplate>
+    <span>{{errorMessage}}</span>
+</ng-template>
+<ng-template #norecordtemplate>
+    <span>No record found</span>
+</ng-template>
+<div *ngIf="requestCompleted;else loadertemplate">
+    <div *ngIf="errorMessage=='';else errortemplate">
+        <div *ngIf="productInfo;else norecordtemplate">
+            <h2>
+                Details of {{productInfo.productName}}
+            </h2>
+        </div>
+    </div>
+</div>
