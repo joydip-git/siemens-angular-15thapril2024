@@ -16,12 +16,14 @@ export class ProductListComponent implements OnInit, OnDestroy {
   filterText = ''
 
   private sub?: Subscription;
+  private deleteSub?: Subscription;
 
   constructor(@Inject(PRODUCT_SERVICE_TOKEN) private _ps: DataService) {
   }
 
   ngOnDestroy(): void {
     this.sub?.unsubscribe()
+    this.deleteSub?.unsubscribe()
   }
   ngOnInit(): void {
     this.sub =
@@ -48,7 +50,34 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   updateFilterText(newText: string) {
-    console.log(newText)
     this.filterText = newText
+  }
+
+  delete(id: number) {
+    if (confirm('would you like to delete?')) {
+      this.deleteSub =
+        this._ps
+          .deleteProduct(id)
+          .subscribe({
+            next: (response) => {
+              if (response.data != null) {
+                alert(response.message)
+                this.productRecords = response.data
+                this.requestCompleted = true
+                this.errorMessage = ''
+              } else {
+                this.productRecords = undefined
+                this.requestCompleted = true
+                this.errorMessage = response.message
+              }
+            },
+            error: (e) => {
+              this.productRecords = undefined
+              this.errorMessage = e.message
+              this.requestCompleted = true
+            }
+          })
+    } else
+      alert('delete cancelled')
   }
 }
