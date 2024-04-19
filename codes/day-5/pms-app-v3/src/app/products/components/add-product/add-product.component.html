@@ -1,0 +1,155 @@
+<!-- <form ngForm #frm="ngForm" (submit)="submit(frm)">
+    <div>
+        <label for="txtUserName">User Name: &nbsp;</label>
+        <input type="text" id="txtUserName" ngModel name="username" required #uname="ngModel" email>
+    </div>
+
+    <div *ngIf="uname.errors">
+        <div *ngIf="uname.errors['required'] && (uname.dirty || uname.touched)">
+            <span>Enter Username</span>
+        </div>
+        <div *ngIf="uname.errors['email'] && (uname.dirty || uname.touched)">
+            <span>Enter Username in email format</span>
+        </div>
+    </div>
+    <div>
+        <label for="txtPassword">Password: &nbsp;</label>
+        <input type="password" id="txtPassword" ngModel name="password" required #pwd="ngModel">
+    </div>
+    <div *ngIf="pwd.errors">
+        <div *ngIf="pwd.errors['required'] && (pwd.dirty || pwd.touched)">
+            <span>Enter password</span>
+        </div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary" [disabled]="frm.invalid">Submit</button>
+    </div>
+</form> -->
+
+<!-- <form [formGroup]="loginFrm" (submit)="submit()">
+    <div>
+        <label for="txtUserName">User Name: &nbsp;</label>
+        <!-- <input type="text" id="txtUserName" name="username" [formControl]="usernameCtrl"> -->
+<!--<input type="text" id="txtUserName" formControlName="username">
+    </div>
+
+    <div *ngIf="uname?.errors">
+        <div *ngIf="uname?.errors?.['required'] && (uname?.dirty || uname?.touched)">
+            <span>Enter Username</span>
+        </div>
+        <div *ngIf="uname?.errors?.['email'] && (uname?.dirty || uname?.touched)">
+            <span>Enter Username in email format</span>
+        </div>
+    </div>
+
+    <div>
+        <label for="txtPassword">Password: &nbsp;</label>
+        <!-- <input type="password" id="txtPassword" name="password" [formControl]="passwordCtrl"> -->
+<!--<input type="password" id="txtPassword" formControlName="password">
+</div>
+<div *ngIf="pwd?.errors">
+    <div *ngIf="pwd?.errors?.['required'] && (pwd?.dirty || pwd?.touched)">
+        <span>Enter password</span>
+    </div>
+</div>
+<div>
+    <button type="submit" class="btn btn-primary" [disabled]="loginFrm.invalid">Submit</button>
+</div>
+</form> -->
+
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-md-6-offest-3">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="productId">Id:</label>
+                <input type="number" id="productId" class="form-control" placeholder="enter product id">
+
+                <!-- error displayer -->
+                <div class="alert alert-danger">
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="productName">Name:</label>
+                <input type="text" id="productName" class="form-control" placeholder="enter product name">
+
+                <!-- error displayer -->
+                <div class="alert alert-danger">
+
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="productCode">Code:</label>
+                <input type="text" id="productCode" class="form-control" placeholder="enter product code">
+
+                <!-- error displayer -->
+                <div class="alert alert-danger">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <input type="text" id="description" class="form-control" placeholder="enter product description">
+
+                <!-- error displayer -->
+                <div class="alert alert-danger">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="releaseDate">Released On:</label>
+                <input type="datetime" id="releaseDate" class="form-control" placeholder="enter product releaseDate">
+
+                <!-- error displayer -->
+                <div class="alert alert-danger">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" class="form-control" placeholder="enter product price">
+
+                <!-- error displayer -->
+                <div class="alert alert-danger">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="starRating">Rating:</label>
+                <input type="number" id="starRating" class="form-control" placeholder="enter product rating">
+
+                <!-- error displayer -->
+                <div class="alert alert-danger">
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="imageUrl">URL:</label>
+                <input type="text" id="imageUrl" class="form-control" placeholder="enter product url">
+
+                <!-- error displayer -->
+                <div class="alert alert-danger">
+
+                </div>
+            </div>
+
+            <div class="container-fluid centerStyle">
+                <button type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-danger">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
