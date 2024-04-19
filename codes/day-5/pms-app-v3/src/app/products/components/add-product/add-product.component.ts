@@ -1,5 +1,5 @@
-import { Component, Inject, Input, OnDestroy } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, Inject, OnDestroy } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../../../models/product';
 import { DataService } from '../../services/dataservice';
 import { PRODUCT_SERVICE_TOKEN } from '../../../config/appconstants';

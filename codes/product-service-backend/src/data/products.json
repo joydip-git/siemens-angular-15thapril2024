@@ -48,5 +48,15 @@
         "price": 67,
         "starRating": 4,
         "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
+    },
+    {
+        "productId": 6,
+        "productName": "dell",
+        "productCode": "dell-1234",
+        "price": 120000,
+        "description": "new laptop from dell",
+        "releaseDate": "4/19/2024",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxza1Ubx-y1dNo6gewJN4krEj9YW210vLFFFdQ37J2SRgKtaiflagKAYhLbXulAEBYG3E&usqp=CAU",
+        "starRating": 4
     }
 ]
