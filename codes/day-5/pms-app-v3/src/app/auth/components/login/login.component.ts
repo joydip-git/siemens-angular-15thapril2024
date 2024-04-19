@@ -3,6 +3,7 @@ import { FormGroup, NgForm } from '@angular/forms';
 import { AuthenticationService } from '../../services/authentication.service';
 import { User } from '../../../models/user';
 import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,10 @@ import { Subscription } from 'rxjs';
 export class LoginComponent implements OnDestroy {
   private sub?: Subscription;
 
-  constructor(private authsvc: AuthenticationService) {
+  constructor(private authsvc: AuthenticationService,
+    private currentRoute: ActivatedRoute,
+    private _router: Router
+  ) {
 
   }
   ngOnDestroy(): void {
@@ -26,10 +30,19 @@ export class LoginComponent implements OnDestroy {
       .authenticateUser(user)
       .subscribe({
         next: (response) => {
+          alert(response.message)
           if (response.data != null) {
+            //save the token
+            sessionStorage.setItem('token', response.data)
 
-          } else {
-
+            //redirect
+            const snapshot = this.currentRoute.snapshot
+            const returnUrl = snapshot.queryParams['returnUrl']
+            if (returnUrl && returnUrl != '') {
+              this._router.navigate([returnUrl])
+            } else {
+              this._router.navigate(['/products'])
+            }
           }
         },
         error: (e) => {

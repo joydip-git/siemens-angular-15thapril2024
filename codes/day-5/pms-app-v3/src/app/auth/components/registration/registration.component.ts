@@ -4,6 +4,7 @@ import { passwordStrength } from '../../validators/passwordstrength';
 import { AuthenticationService } from '../../services/authentication.service';
 import { User } from '../../../models/user';
 import { Subscription, elementAt } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registation',
@@ -17,7 +18,9 @@ export class RegistrationComponent implements OnDestroy {
 
   constructor(
     private _builder: FormBuilder,
-    private authsvc: AuthenticationService) {
+    private authsvc: AuthenticationService,
+    private _router: Router
+  ) {
     this.registrationForm = this._builder.group({
       username: ['enter user name', [Validators.required, Validators.email]],
       password: ['', [Validators.required, passwordStrength]]
@@ -35,20 +38,21 @@ export class RegistrationComponent implements OnDestroy {
   }
 
   register() {
-    const user = <User>this.registrationForm.value
-    this.authsvc
-      .registerUser(user)
-      .subscribe({
-        next: (response) => {
-          if (response.data != null) {
-
-          } else {
+    if (confirm('Confirm Submission?')) {
+      const user = <User>this.registrationForm.value
+      this.authsvc
+        .registerUser(user)
+        .subscribe({
+          next: (response) => {
+            alert(response.message)
+            if (response.data != null) {
+              this._router.navigate(['/login'])
+            }
+          },
+          error: (e) => {
 
           }
-        },
-        error: (e) => {
-
-        }
-      })
+        })
+    }
   }
 }

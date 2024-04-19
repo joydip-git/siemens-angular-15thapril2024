@@ -4,10 +4,12 @@ import { ProductListComponent } from "./components/product-list/product-list.com
 import { AddProductComponent } from "./components/add-product/add-product.component";
 import { UpdateProductComponent } from "./components/update-product/update-product.component";
 import { ProductDetailComponent } from "./components/product-detail/product-detail.component";
+import { authGuard } from "./services/auth.guard";
 
 const productRoutes: Routes = [
     {
         path: 'products',
+        canActivateChild: [authGuard],
         children: [
             { path: '', component: ProductListComponent },
             { path: 'add', component: AddProductComponent },

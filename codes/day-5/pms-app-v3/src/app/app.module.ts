@@ -8,6 +8,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DashBoardComponent } from './dash-board/dash-board.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 const appRoutes: Routes = [
@@ -25,6 +27,12 @@ const appRoutes: Routes = [
     ],
     declarations: [AppComponent, HomeComponent, PageNotFoundComponent, DashBoardComponent],
     bootstrap: [AppComponent],
-    providers: []
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptorService,
+            multi: true
+        }
+    ]
 })
 export class AppModule { }

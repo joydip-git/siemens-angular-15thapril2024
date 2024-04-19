@@ -1,1 +1,10 @@
-[{"username":"joydip@gmail.com","password":"Joydip@123"},{"username":"joy@gmail.com","password":"Joydip@123"},{"username":"dip@gmail.com","password":"Joydip@123"},{"username":"avc@gmail.com","password":"Joydip@123"}]
+[
+    {
+        "username": "joydip@gmail.com",
+        "password": "Joydip@123"
+    },
+    {
+        "username": "joydipmondal@gmail.com",
+        "password": "Joydip@123"
+    }
+]
