@@ -7,39 +7,54 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrl: './add-product.component.css'
 })
 export class AddProductComponent {
-  // usernameCtrl = new FormControl('enter user name')
-  // passwordCtrl = new FormControl('enter password')
-
-  // loginFrm = new FormGroup({
-  //   username: this.usernameCtrl,
-  //   password: this.passwordCtrl
-  // })
-
-  // loginFrm = new FormGroup({
-  //   username: new FormControl('', [Validators.required, Validators.email]),
-  //   password: new FormControl('', Validators.required)
-  // })
-
-  loginFrm: FormGroup;
+  addForm: FormGroup;
 
   constructor(private _builder: FormBuilder) {
-    this.loginFrm = this._builder.group({
-      username: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+    this.addForm = this._builder.group({
+      productId: [0, Validators.required],
+      productName: ['enter product name', Validators.required],
+      productCode: ['enter product code', Validators.required],
+      price: [0, Validators.required],
+      description: ['enter description', Validators.required],
+      releaseDate: ['enter date', Validators.required],
+      imageUrl: ['enter url', Validators.required],
+      starRating: [0, Validators.required]
     })
   }
 
-
-  get uname() {
-    return this.loginFrm.controls['username']
+  get productId() {
+    return this.addForm?.get('productId')
   }
-  get pwd() {
-    return this.loginFrm.controls['password']
+
+  get productName() {
+    return this.addForm?.get('productName')
+  }
+
+  get productCode() {
+    return this.addForm?.get('productCode')
+  }
+
+  get description() {
+    return this.addForm?.get('description')
+  }
+
+  get releaseDate() {
+    return this.addForm?.get('releaseDate')
+  }
+
+  get price() {
+    return this.addForm?.get('price')
+  }
+
+  get imageUrl() {
+    return this.addForm?.get('imageUrl')
+  }
+
+  get starRating() {
+    return this.addForm?.get('starRating')
   }
 
   submit() {
-    // console.log(this.usernameCtrl)
-    // console.log(this.passwordCtrl)
-    console.log(this.loginFrm.value)
+
   }
 }
