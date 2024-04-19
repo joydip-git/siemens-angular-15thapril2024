@@ -12,7 +12,7 @@ export class AuthenticationService {
     return this._http.post<ApiResponse<User>>('http://127.0.0.1:3000/auth/register', user)
   }
 
-  authenticateUser(user: User) {
+  authenticateUser(user: User): Observable<ApiResponse<string>> {
     return this._http.post<ApiResponse<string>>('http://127.0.0.1:3000/auth/authenticate', user)
   }
 
