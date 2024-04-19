@@ -1,21 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { passwordStrength } from '../../validators/passwordstrength';
+import { AuthenticationService } from '../../services/authentication.service';
+import { User } from '../../../models/user';
+import { Subscription, elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-registation',
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.css'
 })
-export class RegistrationComponent {
+export class RegistrationComponent implements OnDestroy {
 
   registrationForm: FormGroup;
+  private sub?: Subscription;
 
-  constructor(private _builder: FormBuilder) {
+  constructor(
+    private _builder: FormBuilder,
+    private authsvc: AuthenticationService) {
     this.registrationForm = this._builder.group({
       username: ['enter user name', [Validators.required, Validators.email]],
       password: ['', [Validators.required, passwordStrength]]
     })
+  }
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe()
   }
 
   get username() {
@@ -26,6 +35,20 @@ export class RegistrationComponent {
   }
 
   register() {
+    const user = <User>this.registrationForm.value
+    this.authsvc
+      .registerUser(user)
+      .subscribe({
+        next: (response) => {
+          if (response.data != null) {
 
+          } else {
+
+          }
+        },
+        error: (e) => {
+
+        }
+      })
   }
 }
