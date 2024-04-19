@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { passwordStrength } from '../../validators/passwordstrength';
 
 @Component({
   selector: 'app-registation',
@@ -13,7 +14,7 @@ export class RegistationComponent {
   constructor(private _builder: FormBuilder) {
     this.registrationForm = this._builder.group({
       username: ['enter user name', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required, passwordStrength]]
     })
   }
 

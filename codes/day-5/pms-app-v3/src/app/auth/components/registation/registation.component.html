@@ -24,8 +24,21 @@
 
                     <!-- error displayer -->
                     <div class="alert alert-danger" *ngIf="password?.invalid && (password?.touched|| password?.dirty)">
+
                         <div *ngIf="password?.errors?.['required']">
                             enter password
+                        </div>
+                        <div *ngIf="password?.errors?.['length']">
+                            {{password?.errors?.['length']}}
+                        </div>
+                        <div *ngIf="password?.errors?.['uppercase']">
+                            {{password?.errors?.['uppercase']}}
+                        </div>
+                        <div *ngIf="password?.errors?.['lowercase']">
+                            {{password?.errors?.['lowercase']}}
+                        </div>
+                        <div *ngIf="password?.errors?.['digit']">
+                            {{password?.errors?.['digit']}}
                         </div>
                     </div>
                 </div>
