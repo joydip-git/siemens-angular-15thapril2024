@@ -24,4 +24,8 @@ export class RegistationComponent {
   get password() {
     return this.registrationForm.get('password')
   }
+
+  register() {
+    
+  }
 }
