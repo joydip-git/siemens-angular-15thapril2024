@@ -25,8 +25,11 @@
                             formControlName="productName">
 
                         <!-- error displayer -->
-                        <div class="alert alert-danger" *ngIf="">
-
+                        <div class="alert alert-danger"
+                            *ngIf="productName?.invalid && (productName?.touched || productName?.dirty)">
+                            <div *ngIf="productName?.errors?.['required']">
+                                Enter product name
+                            </div>
                         </div>
 
                     </div>
@@ -37,7 +40,11 @@
                             formControlName="productCode">
 
                         <!-- error displayer -->
-                        <div class="alert alert-danger">
+                        <div class="alert alert-danger"
+                            *ngIf="productCode?.invalid && (productCode?.touched || productCode?.dirty)">
+                            <div *ngIf="productCode?.errors?.['required']">
+                                Enter product code
+                            </div>
                         </div>
                     </div>
 
@@ -47,8 +54,11 @@
                             formControlName="description">
 
                         <!-- error displayer -->
-                        <div class="alert alert-danger">
-
+                        <div class="alert alert-danger"
+                            *ngIf="description?.invalid && (description?.touched || description?.dirty)">
+                            <div *ngIf="description?.errors?.['required']">
+                                Enter product description
+                            </div>
                         </div>
                     </div>
 
@@ -58,8 +68,11 @@
                             placeholder="enter product releaseDate" formControlName="releaseDate">
 
                         <!-- error displayer -->
-                        <div class="alert alert-danger">
-
+                        <div class="alert alert-danger"
+                            *ngIf="releaseDate?.invalid && (releaseDate?.touched || releaseDate?.dirty)">
+                            <div *ngIf="releaseDate?.errors?.['required']">
+                                Enter product release date
+                            </div>
                         </div>
                     </div>
 
@@ -69,8 +82,10 @@
                             formControlName="price">
 
                         <!-- error displayer -->
-                        <div class="alert alert-danger">
-
+                        <div class="alert alert-danger" *ngIf="price?.invalid && (price?.touched || price?.dirty)">
+                            <div *ngIf="price?.errors?.['required']">
+                                Enter product price
+                            </div>
                         </div>
                     </div>
 
@@ -80,8 +95,11 @@
                             formControlName="starRating">
 
                         <!-- error displayer -->
-                        <div class="alert alert-danger">
-
+                        <div class="alert alert-danger"
+                            *ngIf="starRating?.invalid && (starRating?.touched || starRating?.dirty)">
+                            <div *ngIf="starRating?.errors?.['required']">
+                                Enter product rating
+                            </div>
                         </div>
                     </div>
 
@@ -91,8 +109,11 @@
                             formControlName="imageUrl">
 
                         <!-- error displayer -->
-                        <div class="alert alert-danger">
-
+                        <div class="alert alert-danger"
+                            *ngIf="imageUrl?.invalid && (imageUrl?.touched || imageUrl?.dirty)">
+                            <div *ngIf="imageUrl?.errors?.['required']">
+                                Enter product image url
+                            </div>
                         </div>
                     </div>
 
