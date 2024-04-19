@@ -6,6 +6,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { PasswordCheckDirective } from './directives/password-check.directive';
 
 const authRoutes: Routes = [
   {
@@ -19,7 +20,8 @@ const authRoutes: Routes = [
 @NgModule({
   declarations: [
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    PasswordCheckDirective
   ],
   imports: [
     CommonModule,

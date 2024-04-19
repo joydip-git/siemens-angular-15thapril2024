@@ -1,10 +1,11 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-md-6 col-md-6-offest-3">
-            <form>
+            <form ngForm (submit)="login(loginfrm)" #loginfrm="ngForm">
                 <div class="form-group">
                     <label for="username">UserName:</label>
-                    <input type="email" name="username" id="username" class="form-control">
+                    <input type="email" name="username" id="username" class="form-control" ngModel #username="ngModel"
+                        required email>
 
                     <div class="alert alert-danger">
 
@@ -12,7 +13,8 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" class="form-control">
+                    <input type="password" name="password" id="password" class="form-control" ngModel
+                        #password="ngModel" required passwordcheck>
 
                     <!-- error displayer -->
                     <div class="alert alert-danger">
