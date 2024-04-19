@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DashBoardComponent } from './dash-board/dash-board.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthModule } from './auth/auth.module';
 
 
 const appRoutes: Routes = [
@@ -17,7 +18,10 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [
-        BrowserModule, ProductsModule, RouterModule.forRoot(appRoutes)
+        BrowserModule,
+        ProductsModule,
+        AuthModule,
+        RouterModule.forRoot(appRoutes)
     ],
     declarations: [AppComponent, HomeComponent, PageNotFoundComponent, DashBoardComponent],
     bootstrap: [AppComponent],

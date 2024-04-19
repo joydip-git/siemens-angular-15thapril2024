@@ -4,10 +4,10 @@ import { passwordStrength } from '../../validators/passwordstrength';
 
 @Component({
   selector: 'app-registation',
-  templateUrl: './registation.component.html',
-  styleUrl: './registation.component.css'
+  templateUrl: './registration.component.html',
+  styleUrl: './registration.component.css'
 })
-export class RegistationComponent {
+export class RegistrationComponent {
 
   registrationForm: FormGroup;
 
@@ -26,6 +26,6 @@ export class RegistationComponent {
   }
 
   register() {
-    
+
   }
 }
