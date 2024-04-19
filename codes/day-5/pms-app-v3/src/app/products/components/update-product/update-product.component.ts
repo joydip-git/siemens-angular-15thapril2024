@@ -4,7 +4,7 @@ import { Product } from '../../../models/product';
 import { ActivatedRoute, ActivatedRouteSnapshot, Params } from '@angular/router';
 import { PRODUCT_SERVICE_TOKEN } from '../../../config/appconstants';
 import { DataService } from '../../services/dataservice';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-update-product',
@@ -23,6 +23,38 @@ export class UpdateProductComponent implements OnInit, OnDestroy {
     @Inject(PRODUCT_SERVICE_TOKEN) private _ps: DataService,
     private _builder: FormBuilder
   ) { }
+
+  get productId() {
+    return this.updateForm?.get('productId')
+  }
+
+  get productName() {
+    return this.updateForm?.get('productName')
+  }
+
+  get productCode() {
+    return this.updateForm?.get('productCode')
+  }
+
+  get description() {
+    return this.updateForm?.get('description')
+  }
+
+  get releaseDate() {
+    return this.updateForm?.get('releaseDate')
+  }
+
+  get price() {
+    return this.updateForm?.get('price')
+  }
+
+  get imageUrl() {
+    return this.updateForm?.get('imageUrl')
+  }
+
+  get starRating() {
+    return this.updateForm?.get('starRating')
+  }
 
   ngOnDestroy(): void {
     this.sub?.unsubscribe()
@@ -58,13 +90,13 @@ export class UpdateProductComponent implements OnInit, OnDestroy {
 
               this.updateForm = this._builder.group({
                 productId: [productId],
-                productName: [productName],
-                productCode: [productCode],
-                price: [price],
-                description: [description],
-                releaseDate: [releaseDate],
-                imageUrl: [imageUrl],
-                starRating: [starRating]
+                productName: [productName, Validators.required],
+                productCode: [productCode, Validators.required],
+                price: [price, Validators.required],
+                description: [description, Validators.required],
+                releaseDate: [releaseDate, Validators.required],
+                imageUrl: [imageUrl, Validators.required],
+                starRating: [starRating, Validators.required]
               })
             }
           }
