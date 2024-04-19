@@ -4,6 +4,7 @@ import { Product } from '../../../models/product';
 import { ActivatedRoute, ActivatedRouteSnapshot, Params } from '@angular/router';
 import { PRODUCT_SERVICE_TOKEN } from '../../../config/appconstants';
 import { DataService } from '../../services/dataservice';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-update-product',
@@ -15,10 +16,12 @@ export class UpdateProductComponent implements OnInit, OnDestroy {
   productInfo?: Product;
   requestCompleted = false
   errorMessage = ''
+  updateForm?: FormGroup;
 
   constructor(
     private currentRoute: ActivatedRoute,
-    @Inject(PRODUCT_SERVICE_TOKEN) private _ps: DataService
+    @Inject(PRODUCT_SERVICE_TOKEN) private _ps: DataService,
+    private _builder: FormBuilder
   ) { }
 
   ngOnDestroy(): void {
@@ -47,6 +50,23 @@ export class UpdateProductComponent implements OnInit, OnDestroy {
             this.productInfo = undefined
             this.errorMessage = e.message
             this.requestCompleted = true
+          },
+          complete: () => {
+            if (this.productInfo) {
+
+              const { productId, productCode, productName, price, description, releaseDate, imageUrl, starRating } = this.productInfo
+
+              this.updateForm = this._builder.group({
+                productId: [productId],
+                productName: [productName],
+                productCode: [productCode],
+                price: [price],
+                description: [description],
+                releaseDate: [releaseDate],
+                imageUrl: [imageUrl],
+                starRating: [starRating]
+              })
+            }
           }
         })
   }

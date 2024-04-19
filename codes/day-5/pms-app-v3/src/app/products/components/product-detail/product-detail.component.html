@@ -13,9 +13,9 @@
             <div class="panel panel-primary">
                 <div class="panel-heading fontSize">
                     Detail: &nbsp;{{productInfo.productName}}
-                    <a [routerLink]="['/products/update',productInfo.productId]" class="btn btn-primary editStyle">
+                    <button type="button" (click)="goToUpdate(productInfo.productId)" class="btn btn-primary editStyle">
                         Edit
-                    </a>
+                    </button>
                 </div>
             </div>
             <div class="panel-body">
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="panel-footer">
-                <button type="button" (click)="goToUpdate(productInfo.productId)" class="btn btn-primary">
+                <button type="button" routerLink="/products" class="btn btn-primary">
                     Back
                 </button>
             </div>
