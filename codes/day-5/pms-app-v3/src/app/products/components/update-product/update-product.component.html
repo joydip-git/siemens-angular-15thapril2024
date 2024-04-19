@@ -12,7 +12,7 @@
     <div *ngIf="errorMessage=='';else errortemplate">
         <div class="row" *ngIf="productInfo;else norecordtemplate">
             <div class="col-xs-12 col-md-6 col-md-6-offest-3">
-                <form class="form-horizontal" *ngIf="updateForm" [formGroup]="updateForm">
+                <form class="form-horizontal" *ngIf="updateForm" [formGroup]="updateForm" (submit)="updateData()">
                     <div class="form-group">
                         <label for="productId">Id:</label>
                         <input type="number" id="productId" class="form-control" placeholder="enter product id" readonly
@@ -116,13 +116,13 @@
                             </div>
                         </div>
                     </div>
-
+                    <br>
                     <div class="container-fluid centerStyle">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" [disabled]="updateForm.invalid">
                             Submit
                         </button>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <button type="button" class="btn btn-danger">
+                        <button type="button" class="btn btn-danger" (click)="goTo()">
                             Cancel
                         </button>
                     </div>

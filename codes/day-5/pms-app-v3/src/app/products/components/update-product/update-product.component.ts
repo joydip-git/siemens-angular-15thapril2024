@@ -1,7 +1,7 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Product } from '../../../models/product';
-import { ActivatedRoute, ActivatedRouteSnapshot, Params } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Params, Router } from '@angular/router';
 import { PRODUCT_SERVICE_TOKEN } from '../../../config/appconstants';
 import { DataService } from '../../services/dataservice';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -13,6 +13,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class UpdateProductComponent implements OnInit, OnDestroy {
   private sub?: Subscription;
+  private updateSub?: Subscription;
+
   productInfo?: Product;
   requestCompleted = false
   errorMessage = ''
@@ -21,7 +23,8 @@ export class UpdateProductComponent implements OnInit, OnDestroy {
   constructor(
     private currentRoute: ActivatedRoute,
     @Inject(PRODUCT_SERVICE_TOKEN) private _ps: DataService,
-    private _builder: FormBuilder
+    private _builder: FormBuilder,
+    private _router: Router
   ) { }
 
   get productId() {
@@ -58,6 +61,7 @@ export class UpdateProductComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub?.unsubscribe()
+    this.updateSub?.unsubscribe()
   }
   ngOnInit(): void {
     const snapshot: ActivatedRouteSnapshot = this.currentRoute.snapshot
@@ -101,5 +105,34 @@ export class UpdateProductComponent implements OnInit, OnDestroy {
             }
           }
         })
+  }
+
+  updateData() {
+    if (confirm('would you like to update?')) {
+
+      this.updateSub =
+        this._ps
+          .updateProduct(
+            <Product>this.updateForm?.value,
+            this.productId?.value
+          ).subscribe({
+            next: (response) => {
+              if (response.data != null) {
+                alert(response.message)
+                // redirect to the product-list component
+                this._router.navigate(['/products'])
+              } else {
+                alert(response.message)
+              }
+            },
+            error: (e) => {
+              alert(e.message)
+            }
+          })
+    }
+  }
+
+  goTo() {
+    this._router.navigate(['/products'])
   }
 }
