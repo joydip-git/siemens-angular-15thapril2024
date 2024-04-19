@@ -7,7 +7,14 @@
                     <input type="email" name="username" id="username" class="form-control" ngModel #username="ngModel"
                         required email>
 
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger" *ngIf="username.invalid && (username.touched|| username.dirty)">
+
+                        <div *ngIf="username.errors?.['required']">
+                            enter user name
+                        </div>
+                        <div *ngIf="username.errors?.['email']">
+                            enter user name in email format
+                        </div>
 
                     </div>
                 </div>
@@ -17,12 +24,27 @@
                         #password="ngModel" required passwordcheck>
 
                     <!-- error displayer -->
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger" *ngIf="password.invalid && (password.touched|| password.dirty)">
 
+                        <div *ngIf="password.errors?.['required']">
+                            enter password
+                        </div>
+                        <div *ngIf="password.errors?.['length']">
+                            {{password.errors?.['length']}}
+                        </div>
+                        <div *ngIf="password.errors?.['uppercase']">
+                            {{password.errors?.['uppercase']}}
+                        </div>
+                        <div *ngIf="password.errors?.['lowercase']">
+                            {{password.errors?.['lowercase']}}
+                        </div>
+                        <div *ngIf="password.errors?.['digit']">
+                            {{password.errors?.['digit']}}
+                        </div>
                     </div>
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" [disabled]="loginfrm.invalid">
                         Login
                     </button>
                 </div>
