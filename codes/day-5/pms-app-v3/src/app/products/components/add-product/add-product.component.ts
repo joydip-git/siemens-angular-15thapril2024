@@ -1,15 +1,25 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Product } from '../../../models/product';
+import { DataService } from '../../services/dataservice';
+import { PRODUCT_SERVICE_TOKEN } from '../../../config/appconstants';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrl: './add-product.component.css'
 })
-export class AddProductComponent {
+export class AddProductComponent implements OnDestroy {
   addForm: FormGroup;
+  private sub?: Subscription;
 
-  constructor(private _builder: FormBuilder) {
+  constructor(
+    private _builder: FormBuilder,
+    @Inject(PRODUCT_SERVICE_TOKEN) private _ps: DataService,
+    private _router: Router
+  ) {
     this.addForm = this._builder.group({
       productId: [0, Validators.required],
       productName: ['enter product name', Validators.required],
@@ -20,6 +30,9 @@ export class AddProductComponent {
       imageUrl: ['enter url', Validators.required],
       starRating: [0, Validators.required]
     })
+  }
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe()
   }
 
   get productId() {
@@ -55,6 +68,24 @@ export class AddProductComponent {
   }
 
   submit() {
+    if (confirm('would you like to add?')) {
+      const product = <Product>this.addForm.value
 
+      this.sub =
+        this._ps
+          .addProduct(product)
+          .subscribe({
+            next: (response) => {
+              alert(response.message)
+
+              if (response.data != null) {
+                //redirect
+                this._router.navigate(['/products'])
+              }
+            },
+            error: (e) => alert(e.message)
+          })
+
+    }
   }
 }
