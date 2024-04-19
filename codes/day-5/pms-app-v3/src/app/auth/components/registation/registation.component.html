@@ -1,22 +1,32 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-md-6 col-md-6-offest-3">
-            <form>
+            <form [formGroup]="registrationForm">
                 <div class="form-group">
                     <label for="username">UserName:</label>
-                    <input type="email" name="username" id="username" class="form-control">
+                    <input type="email" name="username" id="username" class="form-control" formControlName="username">
 
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger" *ngIf="username?.invalid && (username?.touched|| username?.dirty)">
+
+                        <div *ngIf="username?.errors?.['required']">
+                            enter user name
+                        </div>
+                        <div *ngIf="username?.errors?.['email']">
+                            enter user name in email format
+                        </div>
 
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" class="form-control">
+                    <input type="password" name="password" id="password" class="form-control"
+                        formControlName="password">
 
                     <!-- error displayer -->
-                    <div class="alert alert-danger">
-
+                    <div class="alert alert-danger" *ngIf="password?.invalid && (password?.touched|| password?.dirty)">
+                        <div *ngIf="password?.errors?.['required']">
+                            enter password
+                        </div>
                     </div>
                 </div>
                 <div>
