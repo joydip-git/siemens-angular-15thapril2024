@@ -1,12 +1,22 @@
-<div>
-    <div>
-        <div class="row">
+<ng-template #loadertemplate>
+    <span>Loading...</span>
+</ng-template>
+<ng-template #errortemplate>
+    <span>{{errorMessage}}</span>
+</ng-template>
+<ng-template #norecordtemplate>
+    <span>No record found</span>
+</ng-template>
+
+<div *ngIf="requestCompleted;else loadertemplate">
+    <div *ngIf="errorMessage=='';else errortemplate">
+        <div class="row" *ngIf="productInfo;else norecordtemplate">
             <div class="col-xs-12 col-md-6 col-md-6-offest-3">
-                <form class="form-horizontal">
+                <form class="form-horizontal" *ngIf="updateForm" [formGroup]="updateForm">
                     <div class="form-group">
                         <label for="productId">Id:</label>
-                        <input type="number" id="productId" class="form-control" placeholder="enter product id"
-                            readonly>
+                        <input type="number" id="productId" class="form-control" placeholder="enter product id" readonly
+                            formControlName="productId">
 
                         <!-- error displayer -->
                         <div class="alert alert-danger">
@@ -17,7 +27,8 @@
 
                     <div class="form-group">
                         <label for="productName">Name:</label>
-                        <input type="text" id="productName" class="form-control" placeholder="enter product name">
+                        <input type="text" id="productName" class="form-control" placeholder="enter product name"
+                            formControlName="productName">
 
                         <!-- error displayer -->
                         <div class="alert alert-danger">
@@ -28,7 +39,8 @@
 
                     <div class="form-group">
                         <label for="productCode">Code:</label>
-                        <input type="text" id="productCode" class="form-control" placeholder="enter product code">
+                        <input type="text" id="productCode" class="form-control" placeholder="enter product code"
+                            formControlName="productCode">
 
                         <!-- error displayer -->
                         <div class="alert alert-danger">
@@ -37,8 +49,8 @@
 
                     <div class="form-group">
                         <label for="description">Description:</label>
-                        <input type="text" id="description" class="form-control"
-                            placeholder="enter product description">
+                        <input type="text" id="description" class="form-control" placeholder="enter product description"
+                            formControlName="description">
 
                         <!-- error displayer -->
                         <div class="alert alert-danger">
@@ -49,7 +61,7 @@
                     <div class="form-group">
                         <label for="releaseDate">Released On:</label>
                         <input type="datetime" id="releaseDate" class="form-control"
-                            placeholder="enter product releaseDate">
+                            placeholder="enter product releaseDate" formControlName="releaseDate">
 
                         <!-- error displayer -->
                         <div class="alert alert-danger">
@@ -59,7 +71,8 @@
 
                     <div class="form-group">
                         <label for="price">Price:</label>
-                        <input type="number" id="price" class="form-control" placeholder="enter product price">
+                        <input type="number" id="price" class="form-control" placeholder="enter product price"
+                            formControlName="price">
 
                         <!-- error displayer -->
                         <div class="alert alert-danger">
@@ -69,7 +82,8 @@
 
                     <div class="form-group">
                         <label for="starRating">Rating:</label>
-                        <input type="number" id="starRating" class="form-control" placeholder="enter product rating">
+                        <input type="number" id="starRating" class="form-control" placeholder="enter product rating"
+                            formControlName="starRating">
 
                         <!-- error displayer -->
                         <div class="alert alert-danger">
@@ -79,7 +93,8 @@
 
                     <div class="form-group">
                         <label for="imageUrl">URL:</label>
-                        <input type="text" id="imageUrl" class="form-control" placeholder="enter product url">
+                        <input type="text" id="imageUrl" class="form-control" placeholder="enter product url"
+                            formControlName="imageUrl">
 
                         <!-- error displayer -->
                         <div class="alert alert-danger">
