@@ -7,13 +7,17 @@ import { Router } from '@angular/router';
   styleUrl: './dash-board.component.css'
 })
 export class DashBoardComponent {
-  isLogged = false;
+
   constructor(private router: Router) {
-    if (sessionStorage.getItem('token'))
-      this.isLogged = true
+
+  }
+  get isLogged() {
+    return sessionStorage.getItem('token')
   }
   logout() {
-    sessionStorage.removeItem('token')
+    if (this.isLogged) {
+      sessionStorage.removeItem('token')
+    }
     this.router.navigate(['/login'])
   }
 }

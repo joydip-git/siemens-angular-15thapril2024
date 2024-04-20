@@ -20,10 +20,9 @@
                     <a class="nav-link" routerLink="/products/add">Add Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/login">LogIn</a>
-                </li>
-                <li class="nav-item" *ngIf="isLogged">
-                    <a class="nav-link" (click)="logout()">LogOut</a>
+                    <a class="nav-link" (click)="logout()">
+                        {{isLogged?'Logout':'LogIn'}}
+                    </a>
                 </li>
             </ul>
         </div>
