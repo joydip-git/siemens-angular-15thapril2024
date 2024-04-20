@@ -1,5 +1,5 @@
-import { Inject } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, GuardResult, MaybeAsync, Router, RouterStateSnapshot } from '@angular/router';
+import { inject } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
 
 export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
 
@@ -8,7 +8,7 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
   if (token)
     return true
   else {
-    const router: Router = Inject(Router)
+    const router: Router = inject(Router)
     router.navigate(
       ['/login'],
       {
@@ -21,6 +21,7 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
   }
 };
 
+//deprecated code
 /*
 export class AuthGuard implements CanActivate {
 
